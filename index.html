@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافی‌شاپ آرامش</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tahoma', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* بخش اول: صفحه اصلی (Hero) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: #c49a6c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #a87b4f;
+            transform: scale(1.05);
+        }
+
+        /* بخش منو */
+        .menu {
+            padding: 60px 20px;
+            background: #f9f5f0;
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #5a3e2b;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item h3 {
+            font-size: 24px;
+            color: #5a3e2b;
+            margin: 15px 0;
+        }
+
+        .menu-item p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 22px;
+            color: #c49a6c;
+            font-weight: bold;
+        }
+
+        /* بخش درباره ما */
+        .about {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #5a3e2b;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* گالری کوچک */
+        .gallery {
+            padding: 60px 20px;
+            background: #f9f5f0;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #5a3e2b;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* فرم تماس */
+        .contact {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #5a3e2b;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            background: #c49a6c;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: #a87b4f;
+        }
+
+        /* فوتر */
+        .footer {
+            background: #2c1810;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        /* منوی بالای صفحه */
+        .navbar {
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            color: #c49a6c;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- منوی بالای صفحه -->
+    <div class="navbar">
+        <a href="#">خانه</a>
+        <a href="#menu">منو</a>
+        <a href="#about">درباره ما</a>
+        <a href="#gallery">گالری</a>
+        <a href="#contact">تماس</a>
+    </div>
+
+    <!-- بخش اصلی (Hero) -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>☕ کافی‌شاپ آرامش</h1>
+            <p>جایی برای طعم واقعی قهوه و لحظات آرام</p>
+            <a href="#menu" class="btn">مشاهده منو</a>
+        </div>
+    </div>
+
+    <!-- بخش منو -->
+    <div class="menu" id="menu">
+        <h2>📋 منوی ویژه</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>اسپرسو</h3>
+                <p>قهوه غلیظ و پرطرفدار ایتالیایی</p>
+                <div class="price">۳۵,۰۰۰ تومان</div>
+            </div>
+            <div class="menu-item">
+                <h3>کاپوچینو</h3>
+                <p>اسپرسو با شیر کف‌دار و دارچین</p>
+                <div class="price">۴۵,۰۰۰ تومان</div>
+            </div>
+            <div class="menu-item">
+                <h3>لاته</h3>
+                <p>اسپرسو با شیر گرم و کف کم</p>
+                <div class="price">۵۰,۰۰۰ تومان</div>
+            </div>
+            <div class="menu-item">
+                <h3>موکا</h3>
+                <p>اسپرسو با شکلات و شیر</p>
+                <div class="price">۵۵,۰۰۰ تومان</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- بخش درباره ما -->
+    <div class="about" id="about">
+        <h2>📖 درباره ما</h2>
+        <p>کافی‌شاپ آرامش از سال ۱۳۹۵ با هدف ارائه بهترین قهوه و فضایی دلنشین شروع به کار کرد. دانه‌های قهوه ما مستقیماً از بهترین مزارع برزیل و کلمبیا وارد می‌شوند و با تازه‌ترین روش‌ها برشته می‌گردند.</p>
+    </div>
+
+    <!-- گالری -->
+    <div class="gallery" id="gallery">
+        <h2>🖼️ فضای کافی‌شاپ</h2>
+        <div class="gallery-grid">
+            <img src="https://images.pexels.com/photos/3604641/pexels-photo-3604641.jpeg?auto=compress&cs=tinysrgb&w=400" alt="فضای داخلی">
+            <img src="https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg?auto=compress&cs=tinysrgb&w=400" alt="قهوه">
+            <img src="https://images.pexels.com/photos/302902/pexels-photo-302902.jpeg?auto=compress&cs=tinysrgb&w=400" alt="دکوراسیون">
+        </div>
+    </div>
+
+    <!-- فرم تماس -->
+    <div class="contact" id="contact">
+        <h2>📬 تماس با ما</h2>
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required>
+            <input type="email" id="email" name="email" placeholder="ایمیل" required>
+            <textarea id="message" name="message" rows="4" placeholder="پیام شما..."></textarea>
+            <button type="submit">ارسال پیام</button>
+        </form>
+        <p id="formResult" style="margin-top: 15px;"></p>
+    </div>
+
+    <!-- فوتر -->
+    <div class="footer">
+        <p>📞 ۰۲۱-۱۲۳۴۵۶۷۸ | 📍 تهران، خیابان ولیعصر، نبست خیابان فلان</p>
+        <p>🕰️ شنبه تا چهارشنبه ۹ صبح تا ۱۰ شب | پنجشنبه و جمعه ۱۰ صبح تا ۱۱ شب</p>
+        <p>© ۲۰۲۵ کافی‌شاپ آرامش - تمام حقوق محفوظ است</p>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").onsubmit = function(e) {
+            e.preventDefault();
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let result = document.getElementById("formResult");
+
+            if (name === "" || email === "" || message === "") {
+                result.innerHTML = "❌ لطفاً همه فیلدها را پر کنید.";
+                result.style.color = "red";
+            } else {
+                result.innerHTML = "✅ پیام شما با موفقیت ارسال شد! به زودی با شما تماس می‌گیریم.";
+                result.style.color = "green";
+                document.getElementById("contactForm").reset();
+            }
+        };
+    </script>
+
+</body>
+</html>
